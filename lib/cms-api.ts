@@ -21,6 +21,7 @@ import * as datoCmsApi from './cms-providers/dato';
 import * as contentfulApi from './cms-providers/contentful';
 import * as prismicApi from './cms-providers/prismic';
 import * as storyblokApi from './cms-providers/storyblok';
+import * as airtableApi from './cms-providers/airtable';
 
 let cmsApi: {
   getAllSpeakers: () => Promise<Speaker[]>;
@@ -31,6 +32,8 @@ let cmsApi: {
 
 if (process.env.DATOCMS_READ_ONLY_API_TOKEN) {
   cmsApi = datoCmsApi;
+} else if(process.env.AIRTABLE_API_TOKEN){
+  cmsApi = airtableApi;
 } else if (process.env.CONTENTFUL_ACCESS_TOKEN && process.env.CONTENTFUL_SPACE_ID) {
   cmsApi = contentfulApi;
 } else if (process.env.STORYBLOK_PREVIEW_TOKEN) {

@@ -17,6 +17,7 @@
 module.exports = {
   images: {
     domains: [
+      'dl.airtable.com',
       'www.datocms-assets.com',
       'a.storyblok.com',
       'images.ctfassets.net',
